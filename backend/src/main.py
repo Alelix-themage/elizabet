@@ -3,13 +3,6 @@ from routes import ia
 import os
 import uvicorn
 from rich import print
-import redis
-
-redis_client = redis.Redis(host="localhost", port=6379, decode_responses=True)
-
-# Exemplo de uso:
-redis_client.set("chave", "valor")
-print(redis_client.get("chave"))
 
 
 PORT = 3000
