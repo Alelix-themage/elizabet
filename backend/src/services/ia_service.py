@@ -10,10 +10,10 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def get_groq_response(resposta_user: str) -> str:
-    '''
-        Faz a inicialização da IA Elizabet, passando a sua função
-        args: resposta do usuário
-    '''
+    
+        # Faz a inicialização da IA Elizabet, passando a sua função
+        # args: resposta do usuário
+    
     if not resposta_user or resposta_user.strip() == "":
         print("Mensagem vazia recebida")
         return "Não consegui entender sua mensagem. Poderia repetir?"

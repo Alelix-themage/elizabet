@@ -1,15 +1,15 @@
 
-'''
-Módulo responsável pela controller das IA's
-'''
+
+#Módulo responsável pela controller das IA's
+
 import services.ia_service as ia_service
 from schema.schemas import Pergunta
 
 def response_ia(response_user: Pergunta):
-    '''
-    Resposta da IA
-    args: response_user
-    '''
+    
+    # Resposta da IA
+    # args: response_user
+
     if response_user is None:
         return {
             "success": False,

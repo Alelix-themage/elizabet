@@ -23,6 +23,7 @@ pip install -r requirements.txt
 
 # Rode a aplicação
 uvicorn main:app --host 0.0.0.0 --port 3000 --reload
+python3 main.py
 ```
 
 A API estará disponível em:  
