@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from schema.schemas import Pergunta 
-import services.ia_service as ia_service  
+import controllers.ia_controller as ia_controller
+from schema.schemas import Pergunta
 
 router = APIRouter()
 
@@ -15,9 +15,5 @@ async def obter_resposta(pergunta: Pergunta):
     Retorna a resposta da IA
     args: response_user (str): texto do usuário
     """
-    response_ia = ia_service.get_groq_response(pergunta.response_user)
-    return {
-        "success": True,
-        "message": response_ia,
-        "code": 200
-    }
+    response_ia = ia_controller.response_ia(pergunta.response_user)
+    return response_ia
