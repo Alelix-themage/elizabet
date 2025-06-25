@@ -4,6 +4,7 @@ Arquivo responsável por criar as regras de negócio da IA
 import os
 import requests
 from dotenv import load_dotenv
+import redis
 
 load_dotenv()
 
@@ -69,6 +70,9 @@ def get_groq_response(resposta_user: str) -> str:
         data = response.json()
         ai_message = data["choices"][0]["message"]["content"]
         # print("Resposta da IA:", ai_message)
+        redis_client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+        redis_client.set("response_ia", ai_message)
+
         return ai_message
     except requests.RequestException as e:
         print("Erro ao chamar a API do Groq:", e)

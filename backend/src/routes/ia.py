@@ -17,3 +17,12 @@ async def obter_resposta(pergunta: Pergunta):
     """
     response_ia = ia_controller.response_ia(pergunta.response_user)
     return response_ia
+
+
+@router.get("/resposta-ia")
+async def obter_resposta_redis():
+    """
+    Retorna a resposta da IA armazenada no cache do redis
+    """
+    response = ia_controller.response_ia_redis()
+    return response
