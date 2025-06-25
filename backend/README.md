@@ -64,24 +64,44 @@ A resposta será algo assim:
 
 ```plaintext
 elizabet/
-└── backend/
-    └── src/
-        ├── main.py                 # Arquivo principal da aplicação FastAPI
-        ├── controllers/            # Lógica de controle de rotas
-        │   └── ia_controller.py    # Controller para IA
-        ├── routes/                 # Definição de endpoints
-        │   └── ia.py               # Rotas da IA
-        ├── schema/                 # Schemas (Pydantic) para validação de entrada
-        │   └── schemas.py          
-        ├── services/               # Serviços e lógica de integração com a IA
-        │   └── ia.py               # Comunicação com a API Groq (LLaMA)
-        └── __init__.py             # Deixa o diretório como pacote Python
-    ├── .env                        # Segredos (ex: chave da API Groq)
-    ├── requirements.txt            # Dependências
-    └── README.md                   # Este arquivo
+├── backend/
+│   ├── src/
+│   │   ├── main.py                  # Arquivo principal que inicia a API
+│   │   ├── controllers/            # Lógica intermediária entre rotas e serviços
+│   │   │   └── ia_controller.py
+│   │   ├── routes/                 # Definição de endpoints (FastAPI Routers)
+│   │   │   └── ia.py
+│   │   ├── schema/                 # Schemas de entrada e saída (Pydantic)
+│   │   │   └── schemas.py
+│   │   ├── services/               # Lógica da aplicação (ex: chamada à IA)
+│   │   │   └── ia_service.py
+│   │   ├── lib/                    # Bibliotecas auxiliares
+│   │   │   ├── csv_utils.py        # Funções utilitárias para leitura de CSV
+│   │   │   └── redis_client.py     # Cliente Redis centralizado
+│   │   ├── cache/                  # Dados de cache ou temporários
+│   │   │   └── teste.csv
+│   │   └── __init__.py            # Permite tratar o src como pacote
+│
+├── docker-compose.yml             # Define o serviço Redis via container
+├── requirements.txt               # Lista de dependências do projeto
+├── .env                           # Variáveis de ambiente (ex: chave da IA)
+├── .gitignore                     # Arquivos e pastas ignorados pelo Git
+├── README.md                      # Documentação do projeto
+└── LICENSE                        # Licença de uso do projeto (opcional)
 ```
 
 ---
+
+## 🔌 Integração com Redis
+
+Elizabet utiliza o Redis para cache e otimizações futuras.
+
+### Como subir o Redis (usando Docker Compose)
+
+```bash
+docker-compose up -d
+
+
 
 ## 📌 Notas
 
