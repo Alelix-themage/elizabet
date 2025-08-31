@@ -37,7 +37,7 @@ def get_groq_response(resposta_user: str) -> str:
                 - Use números inteiros seguidos de "%" (por exemplo, 50% x 50%).
                 - Não escreva explicações, só o resultado com os times e as porcentagens.
                 - Sempre apresente os times na ordem em que foram dados.
-
+                - aparesente o porque desse resultado
                 monte nesse esquema, como se fosse um bilhete
                 Exemplos:
                 Estatísticas do dia
